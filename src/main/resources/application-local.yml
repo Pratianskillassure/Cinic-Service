@@ -1,0 +1,37 @@
+server:
+  port: 8095
+  servlet:
+    context-path: /clinic  
+spring:   
+  application:
+    name: clinic-service  
+  datasource: 
+    url: jdbc:postgresql://localhost:5432/clinicBT?CreateDatabaseIfNotExist=true
+    username: postgres
+    password:  password@123   
+
+    driver-class-name: org.postgresql.Driver   
+  jpa:  
+    hibernate:
+     ddl-auto: update
+    properties:
+      hibernate:
+        dialect : org.hibernate.dialect.PostgreSQLDialect 
+        namingStrategy: org.hibernate.cfg.PhysicalNamingStrategy
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+    
+  cloud:
+    discovery:
+      enabled: false
+      
+swagger:  
+  url: http://localhost:8095/clinic 
+  
+
+    
+
+
+
